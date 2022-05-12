@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS host_usage (
 	disk_io			INT NOT NULL,
 	disk_available		INT NOT NULL,
 	FOREIGN KEY     (host_id)
-	REFERENCES      (host_info)
+	REFERENCES      host_info(id)
 
 );
 
