@@ -13,23 +13,20 @@ if [ $# -ne  5 ]; then
   exit 1
 fi
 
-vmstat_mb=$(vmstat --unit M)
+lscpu_out='lscpu'
 hostname=$(hostname -f)
 
 #Retrieve hardware specification variables
-memory_free=$(echo "$vmstat_mb" | awk '{print $4}'| tail -n1 | xargs)
-cpu_idle=$(vmstat --unit M |  awk '{print $15}' | tail -n1| xargs)
-cpu_kernel=$(vmstat --unit M |  awk '{print $13}' |tail -n1| xargs)
-disk_io=$( vmstat -d  |  awk '{print $10 }' | tail -n1| xargs)
-disk_available=$(df -BM / | awk '{print $4}'| tail -n1| xargs)
+cpu_number=$(echo "$lscpu_out"  | egrep "^CPU\(s\):" | awk '{print $2}' | xargs)
+cpu_architecture=$(echo "$lscpu_out"  | egrep "Architecture" | awk '{print $2}' | xargs)
+cpu_model=$(echo "$lscpu_out"  | egrep "\bModel\s\bname" | awk '{print $3, $4, $5}' | xargs)
+cpu_mhz=$(echo "$lscpu_out"  | egrep "\bCPU\s\MHz" | awk '{print $3}' | xargs)
+l2_cache=$(echo "$lscpu_out"  | egrep "\bL2\s\bcache" | awk '{print $3}' | xargs)
+total_mem=$(grep "^MemTotal" /proc/meminfo | awk '{ print $2 }')
 timestamp=$(vmstat -t | awk '{print $18, $19}' | tail -n1| xargs)
 
-
-#Subquery to find matching id in host_info table
-host_id="(SELECT id FROM host_info WHERE hostname='$hostname')";
-
-#Insert server usage data into host_usage table
-insert_stmt="INSERT INTO host_usage(timestamp, host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available) VALUES('$timestamp', '$host_id', '$memory_free', '$cpu_idle', '$cpu_kernel', '$disk_io', '$disk_available');"
+#Insert server usage data into host_inof table
+insert_stmt="INSERT INTO host_info(hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, total_mem, timestamp) VALUES('$hostname', '$cpu_number', '$cpu_architecture', '$cpu_model', '$cpu_mhz', '$l2_cache', '$total_mem', '$timestamp');"
 
 #set up env var for pql cmd
 export PGPASSWORD=$psql_password
