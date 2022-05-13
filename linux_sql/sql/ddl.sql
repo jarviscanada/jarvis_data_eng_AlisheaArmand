@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS host_agent;
 CREATE DATABASE host_agent;
 \c host_agent;
 
+--DROP TABLE IF EXISTS host_info CASCADE;
+
 CREATE TABLE IF NOT EXISTS host_info (
 	id			    SERIAL NOT NULL,
 	hostname		VARCHAR (50) NOT NULL,
@@ -9,7 +11,7 @@ CREATE TABLE IF NOT EXISTS host_info (
 	cpu_architecture	VARCHAR (50) NOT NULL,
 	cpu_model		VARCHAR (50) NOT NULL,
 	cpu_mhz			NUMERIC NOT NULL,
-	L2_cache		INT NOT NULL,
+	L2_cache		VARCHAR(50) NOT NULL,
 	total_mem		INT NOT NULL,
 	timestamp		TIMESTAMP NOT NULL,
 	PRIMARY KEY     (id)
