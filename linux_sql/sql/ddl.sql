@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS host_info (
 
 --INSERT INTO host_info (id, hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, L2_cache, total_mem, "timestamp");
 
-DROP TABLE IF EXISTS host_usage;
+--DROP TABLE IF EXISTS host_usage;
 
 CREATE TABLE IF NOT EXISTS host_usage (
 	timestamp		TIMESTAMP NOT NULL,
