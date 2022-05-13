@@ -30,7 +30,7 @@ host_id="(SELECT id FROM host_info WHERE hostname='$hostname')";
 
 #Insert server usage data into host_usage table
 insert_stmt="INSERT INTO host_usage(timestamp, host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
-VALUES('$timestamp', $host_id, '$memory_free', '$cpu_idle', '$cpu_kernel', '$disk_io', $disk_available)";
+VALUES('$timestamp', $host_id, '$memory_free', '$cpu_idle', '$cpu_kernel', '$disk_io', '$disk_available')";
 
 #set up env var for pql cmd
 export PGPASSWORD=$psql_password
