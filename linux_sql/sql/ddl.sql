@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS host_info (
 	cpu_architecture	VARCHAR (50) NOT NULL,
 	cpu_model		VARCHAR (50) NOT NULL,
 	cpu_mhz			NUMERIC NOT NULL,
-	L2_cache		VARCHAR(50) NOT NULL,
+	L2_cache		VARCHAR(100) NOT NULL,
 	total_mem		INT NOT NULL,
 	timestamp		TIMESTAMP NOT NULL,
 	PRIMARY KEY     (id)
