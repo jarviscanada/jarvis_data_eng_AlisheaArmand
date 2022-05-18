@@ -27,7 +27,7 @@ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 The project was implemented using Linux command lines, Bash scripts, PostgreSQL, docker, IDE, crontab, RDBSM database, ddl, and SQL queries
 
 ## Architecture
-Draw a cluster diagram with three Linux hosts, a DB, and agents (use draw.io website). Image must be saved to the `assets` directory.
+![architecture cluster diagram](./assets/architecture_cluster_diagram.jpg)
 
 ## Scripts
 For usage please see Quick Start
