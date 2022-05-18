@@ -46,7 +46,7 @@ For usage please see Quick Start
 
 | id | hostname | cpu_number | cpu_architecture | cpu_model | cpu_mhz | l2_cache | total_mem | timestamp |
 |----|----------|------------|------------------|-----------|---------|----------|-----------|-----------|
-|  auto increment  |   fully qualified hostname       |   VARCHAR(100)         |      VARCHAR(100)            |     VARCHAR(100)      |    NUMERIC     |     in kB     |         in kB  |      current time in UTC     |
+|  auto increment, primary key  |   fully qualified hostname       |   INT         |      VARCHAR(100)            |     VARCHAR(100)      |    NUMERIC     |     in kB     |         in kB  |      current time in UTC     |
 
 - `host_usage`
 
