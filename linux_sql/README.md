@@ -20,7 +20,7 @@ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
 - Crontab setup
 ```bash
-* * * * * bash /home/centos/dev/jarvis_data_eng_Alishea/linux_sql/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log
+* * * * * bash /absolute_path_of_script/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log
 ```
 
 # Implemenation
@@ -32,7 +32,7 @@ The project was implemented using Linux command lines, Bash scripts, PostgreSQL,
 ## Scripts
 For usage please see Quick Start
 - psql_docker.sh - sets up a psql instance using docker
-- host_info.sh - collects hardware specification data then inserts that data into the psql database
+- host_info.sh - collects hardware specification data then inserts that data into the psql database (host_agent)
 - host_usage.sh - collects server usage data then inserts that data into the psql database (host_agent)
 - crontab - executes host_usage.sh every minute
 - queries.sql 
@@ -46,7 +46,7 @@ For usage please see Quick Start
 
 | id | hostname | cpu_number | cpu_architecture | cpu_model | cpu_mhz | l2_cache | total_mem | timestamp |
 |----|----------|------------|------------------|-----------|---------|----------|-----------|-----------|
-|  auto increment  |   fully qualified hostname       |   VARCHAR(100)         |      VARCHAR(100)            |     VARCHAR(100)      |         |     in kB     |         in kB  |      current time in UTC     |
+|  auto increment  |   fully qualified hostname       |   VARCHAR(100)         |      VARCHAR(100)            |     VARCHAR(100)      |    NUMERIC     |     in kB     |         in kB  |      current time in UTC     |
 
 - `host_usage`
 
