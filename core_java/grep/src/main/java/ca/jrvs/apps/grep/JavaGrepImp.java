@@ -12,9 +12,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import org.apache.log4j.BasicConfigurator;
 
 
@@ -60,27 +63,31 @@ public class JavaGrepImp implements JavaGrep{
 
     @Override
     public List<File> listFiles(String rootDir) {
-       List<File> listFilesRecursively = new ArrayList<>();
-
-       try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(rootPath))) {
-           for (Path path : stream) {
-               if (!Files.isDirectory(path)) {
-                   listFilesRecursively.add(path.toFile());
-               }
-           }
-       } catch (IOException e) {
-           logger.error("no such directory", e);
+        List<File> listFilesRecursively = new ArrayList<>();
+        Path path = Paths.get(rootDir);
+        try {
+            List<Path> paths = walkFiles(path);
+            paths.forEach(x -> listFilesRecursively.add(x.toFile()));
+        } catch (IOException e) {
+            logger.error("no such directory", e);
+            System.out.println("no such directory");
        }
         return listFilesRecursively;
+    }
 
-
+    private static List<Path> walkFiles(Path path) throws IOException {
+        List<Path> result;
+        try (Stream<Path> walk = Files.walk(path)) {
+            result = walk.filter(Files :: isRegularFile).collect(Collectors.toList());
+        }
+        return result;
     }
 
     @Override
     public List<String> readLines(File inputFile) {
         List<String> lines = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(rootPath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(inputFile))) {
             for (String line; (line = br.readLine()) != null; ) {
                 lines.add(line);
             }
@@ -124,7 +131,7 @@ public class JavaGrepImp implements JavaGrep{
       List<String> matchedLines = new ArrayList<>();
         for (File file: listFiles(rootPath)) {
             for (String s: readLines(file)) {
-                if (containsPattern(regex)) {
+                if (containsPattern(s)) {
                     matchedLines.add(s);
                     writeToFile(matchedLines);
                 }
@@ -135,10 +142,11 @@ public class JavaGrepImp implements JavaGrep{
 
     public static void main(String[] args) {
 
-        if (args.length != 3) {
-            throw new IllegalArgumentException("USAGE: JavaGrep regex roothPath outFile");
-        }
 
+
+        if (args.length != 3) {
+            throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
+        }
 
         BasicConfigurator.configure();
 
@@ -146,6 +154,9 @@ public class JavaGrepImp implements JavaGrep{
         javaGrepImp.setRegex(args[0]);
         javaGrepImp.setRootPath(args[1]);
         javaGrepImp.setOutFile(args[2]);
+        /*javaGrepImp.setRegex("(.*Romeo.*Juliet.*)");
+        javaGrepImp.setRootPath("C:\\Users\\aarma\\OneDrive\\Desktop\\test");
+        javaGrepImp.setOutFile("C:\\Users\\aarma\\OneDrive\\Documents\\GitHub\\jarvis_data_eng_AlisheaArmand\\core_java\\grep\\out\\grep.txt");*/
 
         try {
             javaGrepImp.process();
