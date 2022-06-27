@@ -72,6 +72,7 @@ public class JavaGrepImp implements JavaGrep{
             logger.error("no such directory", e);
             System.out.println("no such directory");
        }
+        System.out.println(listFilesRecursively);
         return listFilesRecursively;
     }
 
