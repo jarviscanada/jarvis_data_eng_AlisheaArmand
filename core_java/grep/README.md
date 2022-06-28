@@ -6,8 +6,13 @@
 This is a Java app that mimics the function of the Linux grep app. It takes three arguments: regex (pattern to be searched for), rootPath (root directory path), and outFile (output file name). It uses the provided regex expression to recursively search through the given directory for any matches within any file in the directory or its subdirectories. It then writes all lines that contain the pattern to the outFile. This app takes advantage of some core Java features such as object oriented programming,including interfaces and encapsulation, regex API, and array lists. Maven was also used to manage the project.
 
 # Quick Start
-
 [comment]: <> (How to use your apps?)
+```aidl
+docker run --rm \
+-v `pwd`/data:/data -v `pwd`/log:/log \
+${docker_user}/grep .*Romeo.*Juliet.* /data /log/grep.out
+
+```
 
 #Implemenation
 ## Pseudocode
