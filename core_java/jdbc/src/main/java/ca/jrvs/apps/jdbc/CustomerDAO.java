@@ -8,8 +8,8 @@ import java.util.List;
 import org.postgresql.util.PGPropertyMaxResultBufferParser;
 
 public class CustomerDAO extends DataAccessObject<Customer> {
-
-  private final static String INSERT = "INSERT INTO customer (first_name, last_name, email, phone, address, city, state, zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+  private static final String INSERT = "INSERT INTO customer (first_name, last_name," +
+      "email, phone, address, city, state, zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
   public CustomerDAO(Connection connection) {
     super(connection);
@@ -32,7 +32,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
 
   @Override
   public Customer create(Customer dto) {
-    try (PreparedStatement statement = this.connection.prepareStatement(INSERT);) {
+    try(PreparedStatement statement = this.connection.prepareStatement(INSERT);){
       statement.setString(1, dto.getFirstName());
       statement.setString(2, dto.getLastName());
       statement.setString(3, dto.getEmail());
@@ -43,7 +43,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       statement.setString(8, dto.getZipCode());
       statement.execute();
       return null;
-    }catch (SQLException e) {
+    }catch(SQLException e){
       e.printStackTrace();
       throw new RuntimeException(e);
     }
