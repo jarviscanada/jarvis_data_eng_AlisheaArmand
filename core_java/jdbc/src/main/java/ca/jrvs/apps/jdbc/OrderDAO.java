@@ -83,7 +83,7 @@ public class OrderDAO extends DataAccessObject<Order> {
   public void delete(long id) {
 
   }
-  /*public List<Order> getOrdersForCustomer(long customerId){
+  public List<Order> getOrdersForCustomer(long customerId){
     List<Order> orders = new ArrayList<>();
     try(PreparedStatement statement = this.connection.prepareStatement(GET_FOR_CUST);){
       statement.setLong(1, customerId);
@@ -124,6 +124,6 @@ public class OrderDAO extends DataAccessObject<Order> {
     }
     return orders;
   }
-*/
+
 }
 
