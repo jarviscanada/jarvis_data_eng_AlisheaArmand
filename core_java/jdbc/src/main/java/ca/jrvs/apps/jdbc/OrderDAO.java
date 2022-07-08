@@ -83,19 +83,19 @@ public class OrderDAO extends DataAccessObject<Order> {
   public void delete(long id) {
 
   }
-  public List<Order> getOrdersForCustomer (long customerId) {
+  /*public List<Order> getOrdersForCustomer(long customerId){
     List<Order> orders = new ArrayList<>();
-    try (PreparedStatement statement = this.connection.prepareStatement(GET_FOR_CUST)) {
+    try(PreparedStatement statement = this.connection.prepareStatement(GET_FOR_CUST);){
       statement.setLong(1, customerId);
       ResultSet resultSet = statement.executeQuery();
       long orderId = 0;
       Order order = null;
-      while (resultSet.next()) {
+      while(resultSet.next()){
         long localOrderId = resultSet.getLong(4);
-        if(orderId != localOrderId) {
+        if(orderId!=localOrderId){
           order = new Order();
           orders.add(order);
-          order.setId((localOrderId));
+          order.setId(localOrderId);
           orderId = localOrderId;
           order.setCustomerFirstName(resultSet.getString(1));
           order.setCustomerLastLane(resultSet.getString(2));
@@ -118,13 +118,12 @@ public class OrderDAO extends DataAccessObject<Order> {
         orderLine.setProductPrice(resultSet.getBigDecimal(16));
         order.getOrderLines().add(orderLine);
       }
-
-    } catch (SQLException e) {
+    }catch(SQLException e){
       e.printStackTrace();
       throw new RuntimeException(e);
     }
     return orders;
   }
-
+*/
 }
 
