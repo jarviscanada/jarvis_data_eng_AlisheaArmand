@@ -1,78 +1,80 @@
-# Preferred name (Characters only)
+
 name: "Alishea Armand"
 
 github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AlisheaArmand
 
-# Introduce yourself, your academic and professional background.
-# What excites you about the software industry and your passion. At least 80 words
-summary: Hello, I am Alishea Armand. I initially pursued a degree in Natural Science with a concentration in Chemistry at the University of Calgary. After that I decided to switch gears and got a diploma in Dance Education from the University of Surrey in London, and then another diploma  in Object Oriented Software Development at the Southern Alberta Institute of Technology. Because it is a fast track program, you hit the ground running! It exposed me to a wide array of concepts, languages, and technologies. I loved the variety inherent in programming and the constantly evolving nature of it. As a former ballet dancer and teacher, I find the combination of creativity and technical aspects when solving problems to be wonderfully familiar and satisfying. Over the past 10+ years I have pursued various educational avenues and have realized that I love learning and expanding my knowledge, and what better career is there for constantly learning, evolving, and growing than computer programming?  
 
-# Group your skills by level.
-# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+summary: "Hello, I am Alishea Armand. I initially pursued a degree in Natural Science with a concentration in Chemistry at the University of Calgary. After that I decided to switch gears and got a diploma in Dance Education from the University of Surrey in London, and then another diploma  in Object Oriented Software Development at the Southern Alberta Institute of Technology. Because it is a fast track program, you hit the ground running! It exposed me to a wide array of concepts, languages, and technologies. I loved the variety inherent in programming and the constantly evolving nature of it. As a former ballet dancer and teacher, I find the combination of creativity and technical aspects when solving problems to be wonderfully familiar and satisfying. Over the past 10+ years I have pursued various educational avenues and have realized that I love learning and expanding my knowledge, and what better career is there for constantly learning, evolving, and growing than computer programming?"
+
+
 skills:
-  # At least 5 skills
+
   proficient:
     - Java
     - Linux/Bash
     - RDBMS/SQL
     - Agile/Scrum
     - Git
-  # At least 5 skills
+
   competent:
     - Python
     - C#
     - HTML/CSS
     - Android apps
-    - Web applications
-  # At least 5 skills
+    - Validation/Regex
+
   familiar:
-    - Node.js
+    - Unit Testing
     - bootstrap
     - javascript
-    - Validation/Regex
-    - Unit Testing
+    - Web applications
+    - Node.js
 
-# List of Jarvis projects
+
 jarvis_projects:
   - name: "Cluster Monitor"
     git_url: "/linux_sql"
-    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
-    # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: ::.
+    description: :
+    "Designed and MVP that uses a bash script (docker.sh) to create a docker image in order to set up a postgres psql instance that persists the data between nodes. In order to gather and monitor hardware specification and usage data, this project includes 2 bash scripts. The host_info.sh script gathers the host's hardware info once, while the host_usage.sh script monitors resource usage every minute using crontab. Both of these scripts automatically insert the data into a RDBSM database (host_agent). The database is created via ddl.sql, which uses a Data Definition Language. This project also includes some sql scripts that make some hypothetical business queries to better monitor cluster usage. These queries allow the user to group hosts by hardware info, display average memory used in percentage over 5 mins interval for each host, and detect any host failures through the crontab process."
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
-      - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-  - name: "Springboot App"
-    git_url: "/springboot"
-    description: ""
-  - name: "Python Data Analytics"
-    git_url: "/python_data_anlytics"
-    description: ""
-  - name: "Hadoop"
-    git_url: "/hadoop"
-    description: ""
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
-  - name: "Cloud/DevOps"
-    git_url: "/cloud_devops"
-    description: ""
+#      - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      - "JDBC App:"
+      "Implemented an app that connects to an RDBMS using JDBC and PostgreSQL. Through this app you can create, update, and delete a customer in the database, as well as find and sort a list of customers. It also allows you to find an order by ID and, using a stored procedure, get orders by customer ID. Docker and Maven were used in the development of this project."
+      - "Grep App:"
+      Developed a Java app that mimics the function of the Linux grep app. It takes three arguments: "the pattern to be searched for (regex), the root directory path (rootPath), and the output file name (outFile). It uses the given directory path to recursively search through the directory and all its subdirectories for any matches to the provided regular expression within any file found there. It then writes all lines that contain the pattern to the outFile. This app takes advantage of some core Java features such as object oriented programming,including interfaces and encapsulation, the regex API, and array lists. Maven was also used to manage the project, and Docker was used to create and share the image."
+#  - name: "Springboot App"
+#    git_url: "/springboot"
+#    description: ""
+#  - name: "Python Data Analytics"
+#    git_url: "/python_data_anlytics"
+#    description: ""
+#  - name: "Hadoop"
+#    git_url: "/hadoop"
+#    description: ""
+#  - name: "Spark"
+#    git_url: "/spark"
+#    description: ""
+#  - name: "Cloud/DevOps"
+#    git_url: "/cloud_devops"
+#    description: ""
 
 # List of personal or academic projects
 # Feel free to add more projects
 highlighted_projects:
     #project name
-  - name: "Web app for resturant"
-    #URL is optional
-    git_url: "https://github.com/jarviscanada/jarvis_profile_builder"
-    # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
-  - name: "Machine Learning"
-    git_url:
-    description: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+  - name: "Website for Travel Agency"
+    description: "Created a protoype website using html/CSS, bootstrap, php, node.js, C#/Visual Basic, and ASP.NET for a travel agency that connected to a Microsoft SQL Server database. It listed both available packages and agencies/agents that were read from a database. Customers were able to fill out an order form which would result in the creation of a customer record and booking record in the database. The form data was sent to an ASP.NET page that verified the data and either re-displayed the form with appropriate error messages or created a customer record if all fields were valid. The website also incuded a customer sign in page that allowed customers to view and update their information (changes were reflected in database). Finally, customers could view a list of their travel packages, including a price breakdown of each package, and the total cost owing."
+  - name: "Travel Agency Agent GUI - C#/VB prototype"
+    description: "Designed an application that provided a Graphical User Interface for viewing and modifying data in a Microsoft SQL Server database using C# and Visual Basic. It allowed agents to add and edit travel packages, as well as select from a product list to add to the package. Agents were able to add and edit other tables in the database. All data was validated using regular expressions."
+  - name: "Travel Agency Agent GUI - Java prototype"
+  description: "Designed an application that provided a Graphical User Interface for viewing and modifying data in a Microsoft SQL Server database using Java and JavaFX. Users were able to add, modify, and delete customer rewards, rewards, and reward sponsors. All changes were refelcted in the database."
+  - name: "Travel Agency Web service"
+    description: "Developed a RESTful web service that takes a GET request from a webpage and pulls data from the database to send a response back. It was also able to take a PUT, POST, and DELETE request in order to update the database. The web service was able to take JSON requests and send the data back in the appropriate format. AJAX was used to communicate with the web service from a web page."
+    -name: "Travel Agency Android application"
+    description: "Designed an Android app that worked with the Travel Agency Web service project. It allowed potential clients to maintain and dsiplay their personal data from the Microsoft SQL Server database. The app was able to access the RESTfule web service created previously and submitted requsests to acess and modify data. It was able to dsiplay, update, insert, and delete data from the database using the REST service endpoints."
+
 
 #List of professional experience
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
@@ -81,43 +83,43 @@ professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
   - title: "Software Developer"
     company: "Jarvis"
-    duration: "2020-present"
-    # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
-  - title: "Tutor"
-    company: "XYZ Company"
-    duration: "2019"
-    description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
+    duration: "2022-present"
+    description: "As a software developer at Jarvis I was responsible for building multiple projects (see linux/sql and core java projects above). I worked with multiple technologies such as Linux, Docker, PostegreSQL, bash script, Git, and Maven. Through those projects I furthered my knowledge of scripting, Java, Object Oriented Programming, and SQL. I gained experience working in an agile environment, participating in daily scrum meetings (including as a scrum leader), bi-weekly sprint retros, and using a scrum board."
+  - title: "Receptionist"
+    company: "Kayenna Spa (dog groomer)"
+    duration: "2021-2022"
+    description: "I managed multiple tasks at once, including scheduling and confirming appointments, communicating with clients via phone, email, or in person, and updating records. I was often responsible for resolving customer problems and complaints. I was also responsible for assessing and assigning new clients to the appropriate groomer. Being an effective communicator and cool under pressure was key for success."
+    -title: "Owner, walker, trainer"
+      company: "A Leashed Adventure"
+      duration: "2020-2021"
+      description: "I managed day-to-day business operations, including accounting , scheduling, finance, marketing, and public relations. I needed to adapt training plans on the fly depending on the changing needs of clients/dogs while keeping timeline and desires in mind. I also educated clients on at-home methods to help them reach and maintain goals for long-term success."
+    -title: "Daycare and Sales staff"
+      company: "Urban Dog Market"
+      duration: "2015-2020"
+      description: "I resolved any issues, improved operations, and provided exceptional service. Prioritizing the development and maintainance of courteous and effective working relationships among my peers and with customers. Over the course of my time with UDM, I participated in continuous improvement by generating suggestions and engaging in problem solving activities to support teamwork."
+    -title: "Instructor"
+      company: "Jeunesse Classique Ballet, International School of Ballet"
+      duration: "2015-2021"
+      descritption: " I was responsible for evaluating and revising lesson plans and course content with student-centred learning in mind. It was vital that I communicated regularly and clearly with parents or guardians, as well as the artistic director about student progress. I often received positive feedback from both parents and students regarding classroom instruction and student learning success.
 
 #List of edcuation
 education: 
-  - school_name: "XYZ university"
-    duration: "2012-2016"
-    degree: "Bachelor of Applied Sciences"
-    department: "Electrical and Computer Engineering"
-    # optional
-    awards_achievements: 
-      - "Scholarship"
-      - "Dean's List (2015, 2016): Ut enim ad minim veniam"
-      - "GPA: 3.8/4.0"
-  - school_name: "XYZ university"
-    duration: "2016-2018"
-    degree: "Master of Engineering"
-    department: "Electrical and Computer Engineering"
-    awards_achievements: 
+  - school_name: "Southern Alberta Institute of Technology "
+    duration: "2021"
+    degree: "Object Oriented Software Development certificate"
 
-#Optional section
-others:
-    #category
-  - title: "Certificates"
-    #list of items
-    bullets:
-      - "Udacity Machine Learning (2019)"
-  - title: "Awards"
-    bullets:
-      - "Winner"
+  - school_name: "University of Calgary"
+    duration: "2010-2014"
+    degree: "Bachelor of Natural Science"
+    department: "Science"
+
+  - school_name: "University of Surrey (London)"
+    duration: "2014-2017"
+    degree: "Dance Education"
+
+
   - title: "Activities/Hobbies"
     bullets:
-      - "Basketball player"
-      - "Competitive gaming"
-      - "Volunteer, ABC Food bank: Ut enim ad minim veniam"
+      - "Dog trainer"
+      - "Ballet Dancer"
+      - "Saltwater aquariums seahorses and mixed reef"
