@@ -1,4 +1,4 @@
-package example;
+package ca.jrvs.apps.twitter.example;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
