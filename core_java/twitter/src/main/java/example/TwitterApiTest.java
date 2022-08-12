@@ -1,4 +1,4 @@
-package ca.jrvs.apps.twitter;
+package example;
 
 import com.google.gdata.util.common.base.PercentEscaper;
 import oauth.signpost.OAuthConsumer;
